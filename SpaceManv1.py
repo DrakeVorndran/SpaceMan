@@ -2,9 +2,12 @@ from random import randint,random
 from termcolor import colored
 import time
 import requests
-
+import sys
+corrupchars = ["_","-","%","#","^","ß","∑",":",";","'","™","$","¢","∞","§","√"]
+cols = ["grey","red","green","yellow","blue","magenta","cyan","white",]
 
 def getword():
+    return"hello"
     word_site = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
 
     response = requests.get(word_site)
@@ -84,7 +87,7 @@ def run():
     originWord = word
     userWord = "_"*len(word)
     guesses = 0
-    maxGuesses = 7
+    maxGuesses = 1
     oldGuesses = []
     guessU = ""
     while(True):
@@ -119,15 +122,51 @@ def run():
 
 
 def Failure():
-    print("u suk")
+    print(colored("ERROR: CORRUPTION LEVEL 100%","grey","on_red",attrs=["blink"]))
+    time.sleep(1)
+    print(colored("COMPUTER FAILING","grey","on_red",attrs=["blink"]))
+
+
+    for y in range(randint(5,20)):
+        for x in range(randint(20,70)):
+            sys.stdout.write(colored(corrupchars[randint(0,len(corrupchars)-1)],cols[randint(0,len(cols)-1)],"on_{}".format(cols[randint(0,len(cols)-1)])))
+            sys.stdout.flush()
+            time.sleep(random()/60)
+        print("")
+    printer = colored("GAME OVER  "*20,"grey","on_red",attrs=["blink"])
+    for x in printer:
+        sys.stdout.write(x)
+        sys.stdout.flush()
+        time.sleep(random()/30)
+
+    for y in range(randint(5,20)):
+        for x in range(randint(20,70)):
+            sys.stdout.write(colored(corrupchars[randint(0,len(corrupchars)-1)],cols[randint(0,len(cols)-1)],"on_{}".format(cols[randint(0,len(cols)-1)])))
+            sys.stdout.flush()
+            time.sleep(random()/60)
+        print("")
 
 
 
 
 
 def Victory():
-    print("u good")
+    print(colored("SUCCESS","grey","on_green"))
+    time.sleep(.7)
+    sys.stdout.write(colored("Congratulations, you saved your com","grey","on_green"))
+    sys.stdout.flush()
+    for x in range(5):
+        sys.stdout.write(colored(".","grey","on_green"))
+        sys.stdout.flush()
+        time.sleep(.5*x)
 
+
+    for y in range(randint(5,20)):
+        for x in range(randint(20,70)):
+            sys.stdout.write(colored(corrupchars[randint(0,len(corrupchars)-1)],cols[randint(0,len(cols)-1)],"on_{}".format(cols[randint(0,len(cols)-1)])))
+            sys.stdout.flush()
+            time.sleep(random()/60)
+        print("")
 
 
 

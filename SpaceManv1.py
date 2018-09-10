@@ -7,7 +7,7 @@ corrupchars = ["_","-","%","#","^","ß","∑",":",";","'","™","$","¢","∞","
 cols = ["grey","red","green","yellow","blue","magenta","cyan","white",]
 
 def getword():
-    #return"hello"
+    # return"hello"
     word_site = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
 
     response = requests.get(word_site)
@@ -153,12 +153,11 @@ def Failure():
 def Victory():
     print(colored("SUCCESS","grey","on_green"))
     time.sleep(.7)
-    sys.stdout.write(colored("Congratulations, you saved your com","grey","on_green"))
-    sys.stdout.flush()
-    for x in range(5):
-        sys.stdout.write(colored(".","grey","on_green"))
+    text = "Congratulations, you saved your compu..."
+    for x in range(len(text)):
+        sys.stdout.write(colored(text[x],"grey","on_green"))
         sys.stdout.flush()
-        time.sleep(.5*x)
+        time.sleep(.02)
 
 
     for y in range(randint(5,20)):

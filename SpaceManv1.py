@@ -7,7 +7,7 @@ corrupchars = ["_","-","%","#","^","ß","∑",":",";","'","™","$","¢","∞","
 cols = ["grey","red","green","yellow","blue","magenta","cyan","white",]
 
 def getword():
-    return"hello"
+    #return"hello"
     word_site = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
 
     response = requests.get(word_site)
@@ -87,7 +87,7 @@ def run():
     originWord = word
     userWord = "_"*len(word)
     guesses = 0
-    maxGuesses = 1
+    maxGuesses = 7
     oldGuesses = []
     guessU = ""
     while(True):

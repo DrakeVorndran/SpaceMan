@@ -39,7 +39,15 @@ def userGuess(oldGuesses):
     allowedGuesses = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     while(True):
         print("type a letter to guess 1\ntype a string to guess the word")
-        guess = (input()).upper()
+        while(True):
+            try:
+                guess = (input()).upper()
+                break
+            except KeyboardInterrupt:
+                print("that was dirty")
+            except EOFError:
+                print("dude stop")
+            # print("do you want to exit(y/n)")
         if(guess in oldGuesses):
             print(colored("ERROR: INPUT ALREADY TESTED","grey","on_red",attrs=["blink"]))
         elif(guess in allowedGuesses):
